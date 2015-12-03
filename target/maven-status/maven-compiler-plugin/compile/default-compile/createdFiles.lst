@@ -1,9 +1,0 @@
-br\com\senai\ftv\dao\DefaultDAO.class
-br\com\senai\ftv\dao\ProdutoDAOImpl.class
-br\com\senai\ftv\conversor\ConversorDeProduto.class
-br\com\senai\ftv\util\JSFUtil.class
-br\com\senai\ftv\util\HibernateUtil.class
-br\com\senai\ftv\mbean\ProdutoMB.class
-br\com\senai\ftv\modelo\Produto.class
-br\com\senai\ftv\dao\DAOFactory.class
-br\com\senai\ftv\dao\ProdutoDAO.class

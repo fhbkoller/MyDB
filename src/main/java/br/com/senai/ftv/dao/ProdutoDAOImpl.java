@@ -1,5 +1,6 @@
 package br.com.senai.ftv.dao;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -8,7 +9,9 @@ import org.hibernate.Query;
 
 import br.com.senai.ftv.modelo.Produto;
 
-public class ProdutoDAOImpl extends DefaultDAO implements ProdutoDAO {
+public class ProdutoDAOImpl extends DefaultDAO implements ProdutoDAO,Serializable {
+
+	private static final long serialVersionUID = 9132834015497266615L;
 
 	@Override
 	public void salvar(Produto produto) {

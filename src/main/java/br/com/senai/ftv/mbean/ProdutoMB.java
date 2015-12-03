@@ -1,5 +1,6 @@
 package br.com.senai.ftv.mbean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +14,9 @@ import br.com.senai.ftv.modelo.Produto;
 
 @ManagedBean
 @ViewScoped
-public class ProdutoMB {
+public class ProdutoMB implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private Produto produto;
 	private List<Produto> listaProduto;
 	private ProdutoDAO produtoDAO;

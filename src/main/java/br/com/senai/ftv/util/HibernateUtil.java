@@ -1,9 +1,9 @@
 package br.com.senai.ftv.util;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
+import org.hibernate.service.ServiceRegistryBuilder;
 
 public class HibernateUtil {
 
@@ -15,14 +15,15 @@ public class HibernateUtil {
 	private static SessionFactory buildSessionAnnotationFactory() {
 		try {
 			Configuration configuration = new Configuration();
-			configuration.configure("hibernate.cfg.xml");
+			configuration.configure("google-hibernate.cfg.xml");
+//			configuration.configure("hibernate.cfg.xml");
 			System.out.println("Hibernate Annotation Configuration loaded");
 
-			ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
-					.applySettings(configuration.getProperties()).build();
+			ServiceRegistry serviceRegistry = new ServiceRegistryBuilder()
+					.applySettings(configuration.getProperties()).buildServiceRegistry();
 			System.out.println("Hibernate Annotation serviceRegistry created");
 
-			SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+			SessionFactory sessionFactory = configuration.configure().buildSessionFactory(serviceRegistry);
 
 			return sessionFactory;
 		} catch (Throwable ex) {
