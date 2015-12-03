@@ -5,6 +5,8 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
+import com.google.appengine.api.utils.SystemProperty;
+
 public class HibernateUtil {
 
 	private static SessionFactory sessionFactory;
@@ -15,8 +17,12 @@ public class HibernateUtil {
 	private static SessionFactory buildSessionAnnotationFactory() {
 		try {
 			Configuration configuration = new Configuration();
-			configuration.configure("google-hibernate.cfg.xml");
-//			configuration.configure("hibernate.cfg.xml");
+			if (SystemProperty.environment.value() ==
+			          SystemProperty.Environment.Value.Production) { 
+				configuration.configure("google-hibernate.cfg.xml");
+			} else {
+				configuration.configure("hibernate.cfg.xml");
+			}
 			System.out.println("Hibernate Annotation Configuration loaded");
 
 			ServiceRegistry serviceRegistry = new ServiceRegistryBuilder()
